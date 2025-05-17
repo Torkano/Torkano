@@ -1,0 +1,80 @@
+#Ejercicio N°3
+
+"""En este ejercicio nos piden realizar un cajero automatico donde podemos ingresar el nombre del cliente y su saldo inicial. Se limitaron las opciones
+para que quede dentro de las 4 disponibles."""
+
+#definimos las variables, aquí lo que hago es dejarlas con un valor inicial.
+
+compra_inicial = 0
+Compra_final = 0
+sumatoria = 0
+opcion_cajero = 0
+ingreso_dinero = 0
+retiro_dinero = 0
+
+#Acá comenzamos con el programa del cajero automatico.
+
+
+nombre = str(input("Ingrese su Nombre: "))
+print("-----°-----°-----°-----°-----")
+monto_cajero = float(input("Ingrese Monto Inicial: "))
+print("-----°-----°-----°-----°-----")
+
+
+#Acá debemos ver si el monto incial es un valor positivo.
+
+if monto_cajero > 0:
+
+#Aquí ya comenzamos el programa.
+    while opcion_cajero !=4:
+       
+        
+        print(f"Porfavor selecciones una de las opciones disponibles: \n1.- Consultar Saldo\n2.- Depositar Dinero\n3.- Retirar Dinero \n4.- Salir")
+        print("-----°-----°-----°-----°-----")
+        opcion_cajero = int(input("Seleccione una de las opciones: "))
+        print("-----°-----°-----°-----°-----")
+
+#Esta opción nos entrega el Saldo actual.
+        if opcion_cajero == 1:
+            print(f"{nombre} Su Saldo es de: {monto_cajero}")
+            print("-----°-----°-----°-----°-----")
+#Esta opción nos permite Depositar dinero y muestra el nuevo Saldo.
+        elif opcion_cajero == 2:
+            ingreso_dinero= float(input("Indique cuánto desea Depositar: "))
+            if ingreso_dinero < 0:
+                print("No se pueden ingresa Valores Negativos, Favor ingresar un Valor Positivo")
+                print("-----°-----°-----°-----°-----")
+            else:
+                monto_cajero = monto_cajero + ingreso_dinero
+                print(f"{nombre} Su nuevo Saldo es de: {monto_cajero}")
+                print("-----°-----°-----°-----°-----")
+#Esta opción nos permite Retirar dinero y muestra el nuevo Saldo.
+        elif opcion_cajero == 3:
+            retiro_dinero = float(input("Indique cuánto desea Retirar: "))
+            comprobacion_saldo = monto_cajero - retiro_dinero
+            if comprobacion_saldo < 0:
+                print("Saldo insuficiente para realizar el retiro")
+                print("-----°-----°-----°-----°-----")
+
+            else:
+                monto_cajero = monto_cajero - retiro_dinero
+                print(f"{nombre} Su nuevo Saldo es de: {monto_cajero}")
+                print("-----°-----°-----°-----°-----")
+#Esta opción es para dejar fuera los mayores a 4.
+        elif opcion_cajero >4:
+            print("")
+            print("Debe seleccionar una de las opciones disponibles")
+            print("-----°-----°-----°-----°-----")
+#Esta opción es para dejar fuera los menores a 1.
+        elif opcion_cajero < 0:
+            print("")
+            print("Debe seleccionar una de las opciones disponibles")
+            print("-----°-----°-----°-----°-----") 
+
+    print("          Saliendo           ")
+    print("-----°-----°-----°-----°-----")
+    print("")
+
+else:
+    print("Por favor ingrese un Saldo positivo")
+
